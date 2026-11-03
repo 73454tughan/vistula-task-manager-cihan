@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Contribution</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Team Contribution</h1>
+    </header>
+
+    <div class="contributor-box">
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+        This page was contributed via GitHub Pull Request by a team partner. Click below to load contributor metadata.
+      </p>
+      
+      <button id="load-contributor" type="button">Show Contributor</button>
+      
+      <div id="contributor-student-id"></div>
+    </div>
+
+    <footer class="footer-nav">
+      <a href="index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">
+        &larr; Back to Task Manager
+      </a>
+      <span style="color: var(--text-muted); font-size: 0.85rem;">Practical Assignment 1</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("load-contributor").addEventListener("click", async () => {
+      const displayElem = document.getElementById("contributor-student-id");
+      try {
+        const response = await fetch("contribution.json");
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const data = await response.json();
+        if (data.contributorStudentId) {
+          displayElem.textContent = `Contributor Student ID: ${data.contributorStudentId}`;
+        } else {
+          displayElem.textContent = "Error: Invalid JSON structure in contribution.json";
+        }
+      } catch (err) {
+        displayElem.textContent = "Failed to load contribution data.";
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
