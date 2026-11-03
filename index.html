@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager - 70407</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Task Manager</h1>
+      <div class="student-badge">
+        <span>Student ID:</span>
+        <span id="student-id">70407</span>
+      </div>
+    </header>
+
+    <div id="status-message"></div>
+
+    <section class="card">
+      <h2 class="card-title">Manage Tasks</h2>
+      <form id="task-form">
+        <div class="form-group">
+          <label for="task-title">Task Title *</label>
+          <input type="text" id="task-title" placeholder="Enter task title" required autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="task-description">Description</label>
+          <textarea id="task-description" placeholder="Enter optional details..."></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="task-submit">Add Task</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <div class="tasks-header">
+        <h2 class="card-title" style="margin-bottom:0;">Tasks List</h2>
+      </div>
+      <div id="task-list">
+        <!-- Tasks dynamically populated by app.js -->
+      </div>
+    </section>
+
+    <footer class="footer-nav">
+      <span>Team Project – IT Coursework</span>
+      <a id="contribution-link" href="contribution.html">Team Contribution &rarr;</a>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
